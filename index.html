@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <section id="calculateur-poid">
+<h1>Combien je dois manger de Calories pour perdre du poids ?</h1>
+<form id="form">
+    <label for="sexe">Vous êtes :</label>
+    <select name="sexe" id="sexe" class="input-style">
+        <option value="1" > Un homme</option>
+        <option value="2" >Une femme</option>
+    </select>
+    <input type="number" name="age"  placeholder="Votre age" id="age" class="input-style">
+    <input type="number" name="poids" placeholder="Votre poids en Kg" id="poids" class="input-style">
+    <input type="number" name="taille" placeholder="Votre taille en m (ex : 1.80)" id="taille" class="input-style">
+   
+    <input type="number" name="kg" placeholder="Kg à perdre par mois" id="kg" class="input-style"class="input-style">
+ 
+    <input type="button" value="calculer" id="calculer">
+   
+  </form>
+  
+  <p><span id="metabolisme"></span></p>
+  <p><span id="metabolisme-sedentaire"></span></p>
+  <p><span id="metabolisme-legerement-actif"></span></p>
+  <p><span id="metabolisme-actif"></span></p>
+  <p><span id="metabolisme-tres-actif"></span></p>
+  <p><span id="metabolisme-extremement-actif"></span></p>
+  </section>
+<script>
+
+
+    document.getElementById('calculer').onclick = function() {
+   let a = document.getElementById("age").value;
+   let p = document.getElementById("poids").value;
+   let s = document.getElementById("sexe").value;
+   let t = document.getElementById('taille').value;
+   let kg = document.getElementById('kg').value;
+  
+  
+        if (sexe.value == "1"){
+            mp = 13.7516 * p;
+            mt= 500.33 * t;
+            ma = 6.7550 * a;
+            mb = mp + mt - ma + 66.473;
+        }
+        else {
+            mp = 9.5634 * p;
+            mt= 184.96 * t;
+            ma = 4.6756 * a;
+            mb = mp + mt - ma + 655.0955;
+            
+        }
+
+        mbS = mb * 1.2;
+        mbLa = mb * 1.375;
+        mbA = mb * 1.55;
+        mbTa = mb * 1.725;
+        mbEa = mb * 1.9;
+
+
+        let caloriesMois = kg * 9000;
+        let caloriesJour = caloriesMois / 30;
+        let resultatCaloriesMbs = mbS - caloriesJour;
+        let resultatCaloriesMbla = mbLa - caloriesJour;
+        let resultatCaloriesMba = mbA - caloriesJour;
+        let resultatCaloriesMbta = mbTa - caloriesJour;
+        let resultatCaloriesMbea = mbEa - caloriesJour;
+        
+
+
+        
+
+       
+        document.getElementById('metabolisme').innerHTML = "Métabolisme de base (au repos):<br> "+ Math.round(mb) + "Kcal";
+        document.getElementById('metabolisme-sedentaire').innerHTML = "Métabolisme pour une personne sédentaire (aucune activité physique):<br>" + Math.round(mbS) + " Kcal<br>" + "  vous devez consommer " + Math.round(resultatCaloriesMbs) + " Calories par jour pour perdre " + kg + "kg par mois"  ;
+        document.getElementById('metabolisme-legerement-actif').innerHTML = "Métabolisme une personne légerement active (1 à 3 fois par semaine d'activités physiques):<br> " + Math.round(mbLa) + " Kcal<br>" + " vous devez consommer " + Math.round(resultatCaloriesMbla) + " Calories par jour pour perdre " + kg + "kg par mois";
+        document.getElementById('metabolisme-actif').innerHTML = "Métabolisme pour une personne active (3 à 5 fois par semaine d'activités physiques):<br> " + Math.round(mbA) + " Kcal<br>" + " vous devez consommer " + Math.round(resultatCaloriesMba) + " Calories par jour pour perdre " + kg + "kg par mois";
+        document.getElementById('metabolisme-tres-actif').innerHTML = "Métabolisme pour une personne très active (activités physiques quotidiennes) :<br> " +  Math.round(mbTa)+ " Kcal<br>" + " vous devez consommer " + Math.round(resultatCaloriesMbta) + " Calories par jour pour perdre " + kg + "Kg par mois";
+        document.getElementById('metabolisme-extremement-actif').innerHTML = "Métabolisme pour une personne extrêmement active (activités physiques intenses et quotidiennes) :<br> " + Math.round(mbEa)+ " Kcal<br>" + " vous devez consommer " + Math.round(resultatCaloriesMbea) + " Calories par jour pour perdre " + kg + "kg par mois";
+        
+    }
+  
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

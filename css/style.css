@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+body{
+background-image: url(../image/background.jpg);
+margin : 5%;
+}
+h1{
+    font-family: 'Architects Daughter', cursive;
+}
+#calculateur-poid{
+    box-shadow: 1px -9px 10px black;
+    width: 600px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.input-style{
+text-align: center;
+ border-radius: 50px;
+ width : 200px;
+ height: 30px;
+ margin-left: auto;
+ margin-right: auto;
+ margin-bottom: 20px;
+}
+
+#calculer{
+    
+    font-size: large;
+    text-align: center;
+ border-radius: 50px;
+ 
+ width : 150px;
+ height: 30px;
+ margin-left: auto;
+ margin-right: auto;
+ margin-bottom: 20px;
+ 
+}
+
+#resultat{
+    font-size: 20px;
+}
+
+
+
+#form{
+    background-color:  rgba(255, 255, 255, 0.1);
+display: flex;
+flex-direction: column;
+
+}
