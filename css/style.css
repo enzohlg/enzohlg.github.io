@@ -1,0 +1,829 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Caveat+Brush&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Blaka+Ink&family=Caveat&family=Caveat+Brush&display=swap');
+
+/* Variables */
+:root {
+    --font-size: 1rem;
+}
+
+.light-mode {
+    --navbar-color: #222;
+    --navbar-bg-color: #F0F0F0;
+}
+
+.dark-mode {
+    --navbar-color: #172a3d;
+    --navbar-bg-color: #f4ecdc;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+ul {
+    list-style: none;
+}
+
+/* Basic style */
+body {
+    margin: 0;
+    font-size: var(--font-size);
+    font-family: 'Yeseva One', cursive;
+    overflow-x: hidden;
+    background-color: #f4ecdc;
+}
+
+h2 {
+    font-family: Caveat Brush, cursive, sans-serif;
+}
+
+
+
+footer {
+    background-color: black;
+}
+
+/* start animation */
+
+.start-animation {
+    position: fixed;
+    background-color: black;
+    width: 100%;
+    height: 20%;
+    z-index: 11;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+.start-animation-one {
+    top: 0%;
+    animation-name: start-one;
+
+}
+
+@keyframes start-one {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 100%;
+        opacity: 0;
+        border-radius: 100%;
+        display: none;
+    }
+}
+
+.start-animation-two {
+    top: 20%;
+    animation-name: start-two;
+}
+
+@keyframes start-two {
+    from {
+        right: 0%;
+    }
+
+    to {
+        right: 100%;
+        opacity: 0;
+        border-radius: 100%;
+        display: none;
+    }
+}
+
+.start-animation-three {
+    top: 40%;
+    animation-name: start-three;
+    text-align: center;
+}
+
+.start-animation-three img {
+    z-index: 12;
+    width: 200px;
+    opacity: 0;
+    animation-name: logo-transition;
+    animation-duration: 1.5s;
+
+    animation-fill-mode: forwards;
+}
+
+@keyframes logo-transition {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes start-three {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 100%;
+        opacity: 0;
+        border-radius: 100%;
+        display: none;
+    }
+}
+
+.start-animation-four {
+    top: 60%;
+    animation-name: start-four;
+}
+
+@keyframes start-four {
+    from {
+        right: 0%;
+    }
+
+    to {
+        right: 100%;
+        opacity: 0;
+        border-radius: 100%;
+        display: none;
+    }
+}
+
+.start-animation-five {
+    top: 80%;
+    animation-name: start-five;
+}
+
+@keyframes start-five {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 100%;
+        opacity: 0;
+        border-radius: 100%;
+        display: none;
+    }
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    display: block;
+    padding: 10px;
+    font-size: 1.1rem;
+    background: var(--navbar-bg-color);
+    color: var(--navbar-color);
+    z-index: 10;
+}
+
+.navbar__links {
+    display: flex;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 0;
+    height: calc(100vh - 65px);
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background: var(--navbar-bg-color);
+    transform: translateX(110%);
+    transition: all .5s ease-in-out;
+}
+
+.show-nav .navbar__links {
+
+    width: 100vw;
+    transform: translateX(0);
+}
+
+.navbar__link {
+    padding: 0 10px;
+    transform: translateX(101%);
+    transition: all .5s ease-in-out;
+}
+
+.navbar__link>a {
+    color: var(--navbar-color);
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--navbar-color);
+    transition: all .4s ease-in-out;
+}
+
+.show-nav .navbar__link {
+    transform: translateX(0);
+    font-family: Caveat Brush, cursive, sans-serif;
+}
+
+.burger {
+    display: block;
+    position: relative;
+    left: 95%;
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.navbar__link>a:hover {
+    padding-left: 2rem;
+    letter-spacing: 5px;
+}
+
+/* Toggle menu */
+.bar {
+    display: block;
+    width: 45px;
+    height: 4px;
+    border-radius: 3px;
+    background: var(--navbar-color);
+    transition: all .5s ease-in-out;
+}
+
+.bar::before,
+.bar::after {
+    content: "";
+    width: 45px;
+    height: 4px;
+    position: absolute;
+    left: 0;
+    background: var(--navbar-color);
+    border-radius: 3px;
+    transition: all .5s ease-in-out;
+}
+
+.bar::before {
+    transform: translateY(-12px)
+}
+
+.bar::after {
+    transform: translateY(12px)
+}
+
+.show-nav .bar {
+    width: 0;
+    background: transparent;
+}
+
+.show-nav .bar::before {
+    transform: rotate(45deg);
+}
+
+.show-nav .bar::after {
+    transform: rotate(-45deg);
+}
+
+/* Bonus - Animations */
+.show-nav .first {
+    transition: all 1s ease-out;
+}
+
+.show-nav .second {
+    transition: all 1.1s ease-out;
+}
+
+.show-nav .third {
+    transition: all 1.2s ease-out;
+}
+
+.show-nav .four {
+    transition: all 1.3s ease-out;
+}
+
+.show-nav .fifth {
+    transition: all 1.4s ease-out;
+}
+
+.gg-instagram {
+    color: purple;
+}
+
+.fb-nav {
+    background-color: blue;
+    width: 23px;
+    padding-top: 4px;
+    padding-left: 2px;
+    border-radius: 5px;
+}
+
+.gg-facebook {
+    color: white;
+
+
+}
+
+
+/*  Medium device - Bonus */
+@media screen and (min-width:768px) {
+    .navbar__link>a::after {
+        display: block;
+        content: "";
+        width: 0;
+        height: 1px;
+        background: var(--navbar-color);
+        transition: width .8s;
+    }
+
+    .navbar__link:hover>a::after {
+        width: 100%;
+    }
+}
+
+/* bonus */
+.main-content,
+#section2 {
+    height: 100vh;
+}
+
+.navbar__logo {
+    right: 50%;
+    transform: translate(50%, -50%);
+    top: 65px;
+    display: block;
+    position: absolute;
+    z-index: 3;
+
+}
+
+
+
+
+
+.slider {
+    height: 80vh;
+    position: relative;
+
+
+}
+
+.slider img {
+    right: 50%;
+    transform: translate(50%, -50%);
+    object-fit: cover;
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.slider img.active {
+    opacity: 1;
+}
+
+
+
+
+#info {
+    font-family: Caveat, cursive, sans-serif;
+    font-weight: 1;
+    font-size: 25px;
+    position: relative;
+    text-align: center;
+    padding-bottom: 60px;
+
+
+}
+
+.horraires {
+    margin-top: 30px;
+}
+
+#carte {
+    text-align: center;
+    position: relative;
+    background-color: #172a3d;
+    font-family: 'Yeseva One', cursive;
+    color: #f4ecdc;
+    padding-top: 80px;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+
+
+}
+
+#carte h2 {
+    transform: translate(50%, -50%);
+    display: contents;
+    text-align: center;
+    padding-top: 120px;
+    font-weight: 1000;
+    font-size: 100px;
+    font-family: 'Shrikhand', cursive;
+
+}
+
+#carte h2::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 300px;
+    height: 3px;
+    background: #f4ecdc;
+    right: 50%;
+    transform: translate(50%, -50%);
+
+
+}
+
+#carte h3 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 60px;
+    font-family: 'Shrikhand', cursive;
+
+
+}
+
+.cocktails-box {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+
+}
+
+.cocktail-container {
+    align-items: center;
+    margin: 0 auto;
+}
+
+#carte img {
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.43);
+}
+
+.cocktail-container .cocktail-name {
+    margin-top: 15px;
+
+}
+
+.line {
+    display: inline block;
+    position: relative;
+    width: 200px;
+    height: 1px;
+    background: #f4ecdc;
+    margin: 0 auto;
+    width: 200px;
+
+    margin-top: 15px;
+}
+
+.cocktail-recipe {
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+.cocktail-price {
+    margin-top: 20px;
+}
+
+.no-picture {
+    margin-top: 50px;
+}
+
+
+.alcool-name {
+    position: absolute;
+    margin-left: 35vw;
+}
+
+
+
+.price {
+    position: relative;
+    margin-left: 60vw;
+    font-weight: 600;
+    font-size: 20px;
+    background-color: #172a3d;
+    text-align: left;
+
+}
+
+.price-one {
+    position: relative;
+    font-size: 20px;
+
+
+
+
+}
+
+.price-two {
+
+    z-index: 11;
+    font-size: 20px;
+    background-color: #172a3d;
+
+}
+
+.alcool-recipe {
+
+    position: relative;
+    font-weight: 100;
+    font-size: 10px;
+    font-family: 'Yeseva One', cursive;
+    margin-right: 60px;
+    padding-bottom: 30px;
+    left: -65%;
+}
+
+
+
+#event {
+    text-align: center;
+
+
+}
+
+#event h4 {
+    font-family: 'Yeseva One', cursive;
+    color: #f4ecdc;
+    font-size: 60px;
+    position: absolute;
+    z-index: 2;
+    margin-top: 300px;
+    right: 50%;
+    transform: translate(50%, -50%);
+
+
+}
+
+.img-dj {
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+
+}
+
+#event .insta {
+
+    position: absolute;
+    z-index: 9;
+    color: #f4ecdc;
+    left: 35vw;
+    margin-top: 500px;
+    animation: 0.8s linear 0s infinite alternate insta-anim;
+}
+
+@keyframes insta-anim {
+    from {}
+
+    to {
+        transform: scale(1.5);
+    }
+
+}
+
+#event .insta .gg-instagram {
+
+    transform: scale(2);
+}
+
+#event .fb {
+
+    position: absolute;
+    z-index: 9;
+    color: #f4ecdc;
+    left: 60vw;
+    margin-top: 480px;
+    border-radius: 25%;
+    background-color: blue;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    animation: 0.8s linear 0.4s infinite alternate fb-anim;
+
+}
+
+@keyframes fb-anim {
+    from {}
+
+    to {
+        transform: scale(1.5);
+    }
+
+}
+
+#event .fb .gg-facebook {
+
+    transform: scale(2);
+    border-radius: 20%;
+
+}
+
+/* scroll effect */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+
+.reveal-visible {
+    opacity: 1;
+    transition: 1s cubic-bezier(.5, 0, 0, 1);
+    transform: translateY(0px);
+}
+
+@media (max-width:912px) {
+
+    #event h4 {
+        font-size: 40px;
+        margin-top: 200px;
+    }
+
+    #event .insta {
+        font-size: 28px;
+        margin-top: 350px;
+        transform: scale(0.4);
+
+    }
+
+    @keyframes insta-anim {
+        from {}
+
+        to {
+            transform: scale(0.8);
+        }
+
+    }
+
+    #event .fb {
+        font-size: 28px;
+        margin-top: 330px;
+        transform: scale(0.4);
+
+    }
+
+    @keyframes fb-anim {
+        from {}
+
+        to {
+            transform: scale(0.8);
+        }
+
+    }
+
+}
+
+@media (max-width:745px) {
+
+    .burger {
+        display: block;
+        position: relative;
+        left: 90%;
+
+    }
+
+    #info {
+        transform: scale(0.5);
+        top: 100px;
+    }
+
+    .slider {
+        height: 40vh;
+        width: 100%;
+        position: relative;
+
+    }
+
+
+    .slider img {
+
+        width: 90vw;
+
+    }
+
+    #carte h2 {
+        transform: translate(50%, -50%);
+        display: contents;
+        text-align: center;
+        padding-top: 120px;
+        font-weight: 1000;
+        font-size: 50px;
+        font-family: Caveat Brush, cursive, sans-serif;
+
+    }
+
+    #carte h2::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 150px;
+        height: 3px;
+        background: #f4ecdc;
+        right: 50%;
+        transform: translate(50%, -50%);
+
+
+    }
+
+    #carte h3 {
+        margin-top: 50px;
+        margin-bottom: 30px;
+        font-weight: 500;
+        font-size: 40px;
+        font-family: Caveat Brush, cursive, sans-serif;
+
+
+    }
+
+
+    .alcool-name {
+        position: absolute;
+        font-weight: 1000;
+        font-size: 15px;
+        z-index: 10;
+        left: -20vw;
+
+
+    }
+
+    .alcool-recipe {
+        font-size: 10px;
+        padding-left: 4vw;
+
+    }
+
+    .price {
+        position: relative;
+        margin-left: 46vw;
+        font-weight: 600;
+        font-size: 15px;
+        z-index: 1;
+        text-align: left;
+
+    }
+
+    .price-one {
+        margin-left: 25vw;
+        font-size: 15px;
+    }
+
+    .price-two {
+        margin-left: 25vw;
+        font-size: 15px;
+
+    }
+
+    #event h4 {
+        font-size: 28px;
+        margin-top: 100px;
+    }
+
+    #event .insta {
+        font-size: 28px;
+        margin-top: 210px;
+        transform: scale(0.4);
+
+    }
+
+    @keyframes insta-anim {
+        from {}
+
+        to {
+            transform: scale(0.8);
+        }
+
+    }
+
+    #event .fb {
+        font-size: 28px;
+        margin-top: 190px;
+        transform: scale(0.4);
+
+    }
+
+    @keyframes fb-anim {
+        from {}
+
+        to {
+            transform: scale(0.8);
+        }
+
+    }
+
+}
